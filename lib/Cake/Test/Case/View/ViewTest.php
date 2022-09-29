@@ -396,6 +396,26 @@ class ViewTest extends CakeTestCase {
 	}
 
 /**
+ * Test that plugin files with absolute file paths are scoped
+ * to the plugin and do now allow any file path.
+ *
+ * @expectedException MissingViewException
+ * @return void
+ */
+	public function testPluginGetTemplateAbsoluteFail() {
+		$this->Controller->viewPath = 'Pages';
+		$this->Controller->action = 'display';
+		$this->Controller->params['pass'] = array('home');
+
+		$view = new TestThemeView($this->Controller);
+		$expected = CAKE . 'Test' . DS . 'test_app' . DS . 'Plugin' . DS . 'Company' . DS . 'TestPluginThree' . DS . 'View' . DS . 'Pages' . DS . 'index.ctp';
+		$result = $view->getViewFileName('Company/TestPluginThree./Pages/index');
+		$this->assertPathEquals($expected, $result);
+
+		$view->getViewFileName('Company/TestPluginThree./etc/passwd');
+	}
+
+/**
  * Test getLayoutFileName method on plugin
  *
  * @return void
@@ -926,8 +946,8 @@ class ViewTest extends CakeTestCase {
 		$View->helpers = array('Html', 'Form');
 		$View->loadHelpers();
 
-		$this->assertInstanceOf('HtmlHelper', $View->Html, '_Object type is wrong.');
-		$this->assertInstanceOf('FormHelper', $View->Form, '_Object type is wrong.');
+		$this->assertInstanceOf('HtmlHelper', $View->Html, 'Object type is wrong.');
+		$this->assertInstanceOf('FormHelper', $View->Form, 'Object type is wrong.');
 	}
 
 /**
@@ -939,8 +959,8 @@ class ViewTest extends CakeTestCase {
 		$View = new View($this->PostsController);
 
 		$View->helpers = array();
-		$this->assertInstanceOf('HtmlHelper', $View->Html, '_Object type is wrong.');
-		$this->assertInstanceOf('FormHelper', $View->Form, '_Object type is wrong.');
+		$this->assertInstanceOf('HtmlHelper', $View->Html, 'Object type is wrong.');
+		$this->assertInstanceOf('FormHelper', $View->Form, 'Object type is wrong.');
 	}
 
 /**
@@ -1426,10 +1446,20 @@ class ViewTest extends CakeTestCase {
 	}
 
 /**
+ * Test checking a block's existance.
+ *
+ * @return void
+ */
+	public function testBlockExist() {
+		$this->assertFalse($this->View->exists('test'));
+		$this->View->assign('test', 'Block content');
+		$this->assertTrue($this->View->exists('test'));
+	}
+
+/**
  * Test setting a block's content to null
  *
  * @return void
- * @link https://cakephp.lighthouseapp.com/projects/42648/tickets/3938-this-redirectthis-auth-redirecturl-broken
  */
 	public function testBlockSetNull() {
 		$this->View->assign('testWithNull', null);
@@ -1452,7 +1482,7 @@ class ViewTest extends CakeTestCase {
 /**
  * Test setting a block's content to an object without __toString magic method
  *
- * This should produce a "_Object of class TestObjectWithoutToString could not be converted to string" error
+ * This should produce a "Object of class TestObjectWithoutToString could not be converted to string" error
  * which gets thrown as a PHPUnit_Framework_Error Exception by PHPUnit.
  *
  * @expectedException PHPUnit_Framework_Error
@@ -1505,7 +1535,7 @@ class ViewTest extends CakeTestCase {
 /**
  * Test appending an object without __toString magic method to a block with append.
  *
- * This should produce a "_Object of class TestObjectWithoutToString could not be converted to string" error
+ * This should produce a "Object of class TestObjectWithoutToString could not be converted to string" error
  * which gets thrown as a PHPUnit_Framework_Error Exception by PHPUnit.
  *
  * @expectedException PHPUnit_Framework_Error
@@ -1534,7 +1564,7 @@ class ViewTest extends CakeTestCase {
 /**
  * Test prepending an object without __toString magic method to a block with prepend.
  *
- * This should produce a "_Object of class TestObjectWithoutToString could not be converted to string" error
+ * This should produce a "Object of class TestObjectWithoutToString could not be converted to string" error
  * which gets thrown as a PHPUnit_Framework_Error Exception by PHPUnit.
  *
  * @expectedException PHPUnit_Framework_Error

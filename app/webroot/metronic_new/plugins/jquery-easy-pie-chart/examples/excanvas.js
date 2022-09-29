@@ -70,7 +70,7 @@ if (!document.createElement('canvas').getContext) {
    *   g(c, d) // will do f.call(obj, a, b, c, d)
    *
    * @param {Function} f The function to bind the object to
-   * @param {_Object} obj The object that should act as this when the function
+   * @param {Object} obj The object that should act as this when the function
    *     is called
    * @param {*} var_args Rest arguments that will be used as the initial
    *     arguments when the function is called

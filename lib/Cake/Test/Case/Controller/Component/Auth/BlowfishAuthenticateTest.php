@@ -61,12 +61,12 @@ class BlowfishAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testConstructor() {
-		$_Object = new BlowfishAuthenticate($this->Collection, array(
+		$Object = new BlowfishAuthenticate($this->Collection, array(
 			'userModel' => 'AuthUser',
 			'fields' => array('username' => 'user', 'password' => 'password')
 		));
-		$this->assertEquals('AuthUser', $_Object->settings['userModel']);
-		$this->assertEquals(array('username' => 'user', 'password' => 'password'), $_Object->settings['fields']);
+		$this->assertEquals('AuthUser', $Object->settings['userModel']);
+		$this->assertEquals(array('username' => 'user', 'password' => 'password'), $Object->settings['fields']);
 	}
 
 /**
@@ -200,7 +200,7 @@ class BlowfishAuthenticateTest extends CakeTestCase {
 			'username' => 'gwoo',
 			'created' => '2007-03-17 01:16:23'
 		);
-		$this->assertEquals(self::date(), $result['updated']);
+		$this->assertEquals(static::date(), $result['updated']);
 		unset($result['updated']);
 		$this->assertEquals($expected, $result);
 		CakePlugin::unload();

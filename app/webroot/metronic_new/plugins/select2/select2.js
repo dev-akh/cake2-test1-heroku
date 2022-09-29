@@ -578,7 +578,7 @@ the specific language governing permissions and limitations under the Apache Lic
         return constructor;
     }
 
-    AbstractSelect2 = clazz(_Object, {
+    AbstractSelect2 = clazz(Object, {
 
         // abstract
         bind: function (func) {

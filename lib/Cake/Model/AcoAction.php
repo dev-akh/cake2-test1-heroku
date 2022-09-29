@@ -17,7 +17,7 @@
 App::uses('AppModel', 'Model');
 
 /**
- * Action for Access Control _Object
+ * Action for Access Control Object
  *
  * @package       Cake.Model
  */

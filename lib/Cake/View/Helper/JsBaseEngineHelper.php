@@ -112,7 +112,7 @@ abstract class JsBaseEngineHelper extends AppHelper {
 	}
 
 /**
- * Generates a JavaScript object in JavaScript _Object Notation (JSON)
+ * Generates a JavaScript object in JavaScript Object Notation (JSON)
  * from an array. Will use native JSON encode method if available, and $useNative == true
  *
  * ### Options:
@@ -285,7 +285,7 @@ abstract class JsBaseEngineHelper extends AppHelper {
  * Create javascript selector for a CSS rule
  *
  * @param string $selector The selector that is targeted
- * @return JsBaseEngineHelper instance of $this. Allows chained methods.
+ * @return self instance of $this. Allows chained methods.
  */
 	abstract public function get($selector);
 

@@ -68,7 +68,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
             /**        
             Fired when rendering starts
             @event rendering 
-            @param {_Object} event event object
+            @param {Object} event event object
             **/            
             this.$div.triggerHandler('rendering');
             
@@ -111,7 +111,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
                 /**        
                 Fired when form is rendered
                 @event rendered
-                @param {_Object} event event object
+                @param {Object} event event object
                 **/            
                 this.$div.triggerHandler('rendered');                
 
@@ -127,7 +127,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
             /**        
             Fired when form was cancelled by user
             @event cancel 
-            @param {_Object} event event object
+            @param {Object} event event object
             **/              
             this.$div.triggerHandler('cancel');
         },
@@ -163,7 +163,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
             /**        
             Fired when form is shown
             @event show 
-            @param {_Object} event event object
+            @param {Object} event event object
             **/                    
             this.$div.triggerHandler('show');
         },
@@ -211,7 +211,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
                 /**        
                 Fired when value not changed but form is submitted. Requires savenochange = false.
                 @event nochange 
-                @param {_Object} event event object
+                @param {Object} event event object
                 **/                    
                 this.$div.triggerHandler('nochange');            
                 return;
@@ -249,10 +249,10 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
                 /**        
                 Fired when form is submitted
                 @event save 
-                @param {_Object} event event object
-                @param {_Object} params additional params
+                @param {Object} event event object
+                @param {Object} params additional params
                 @param {mixed} params.newValue submitted value
-                @param {_Object} params.response ajax response
+                @param {Object} params.response ajax response
 
                 @example
                 $('#form-div').on('save'), function(e, params){
@@ -356,7 +356,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
     Initialize editableform. Applied to jQuery object.
 
     @method $().editableform(options)
-    @params {_Object} options
+    @params {Object} options
     @example
     var $form = $('&lt;div&gt;').editableform({
         type: 'text',
@@ -694,7 +694,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
         getConfigData: function($element) {
             var data = {};
             $.each($element.data(), function(k, v) {
-                if(typeof v !== 'object' || (v && typeof v === 'object' && (v.constructor === _Object || v.constructor === Array))) {
+                if(typeof v !== 'object' || (v && typeof v === 'object' && (v.constructor === Object || v.constructor === Array))) {
                     data[k] = v;
                 }
             });
@@ -705,15 +705,15 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
          returns keys of object
         */
         objectKeys: function(o) {
-            if (_Object.keys) {
-                return _Object.keys(o);  
+            if (Object.keys) {
+                return Object.keys(o);  
             } else {
-                if (o !== _Object(o)) {
-                    throw new TypeError('_Object.keys called on a non-object');
+                if (o !== Object(o)) {
+                    throw new TypeError('Object.keys called on a non-object');
                 }
                 var k=[], p;
                 for (p in o) {
-                    if (_Object.prototype.hasOwnProperty.call(o,p)) {
+                    if (Object.prototype.hasOwnProperty.call(o,p)) {
                         k.push(p);
                     }
                 }
@@ -970,7 +970,7 @@ Applied as jQuery method.
                     The workaround is to check `arguments.length` that is always `2` for x-editable.                     
                     
                     @event shown 
-                    @param {_Object} event event object
+                    @param {Object} event event object
                     @example
                     $('#username').on('shown', function(e, editable) {
                         editable.input.$input.val('overwriting value of input..');
@@ -1099,10 +1099,10 @@ Applied as jQuery method.
             Fired when new value was submitted. You can use <code>$(this).data('editableContainer')</code> inside handler to access to editableContainer instance
             
             @event save 
-            @param {_Object} event event object
-            @param {_Object} params additional params
+            @param {Object} event event object
+            @param {Object} params additional params
             @param {mixed} params.newValue submitted value
-            @param {_Object} params.response ajax response
+            @param {Object} params.response ajax response
             @example
             $('#username').on('save', function(e, params) {
                 //assuming server response: '{success: true}'
@@ -1204,7 +1204,7 @@ Applied as jQuery method.
     jQuery method to initialize editableContainer.
     
     @method $().editableContainer(options)
-    @params {_Object} options
+    @params {Object} options
     @example
     $('#edit').editableContainer({
         type: 'text',
@@ -1468,8 +1468,8 @@ Makes editable any HTML element on the page. Applied as jQuery method.
                Please note that you should setup `init` handler **before** applying `editable`. 
                               
                @event init 
-               @param {_Object} event event object
-               @param {_Object} editable editable instance (as here it cannot accessed via data('editable'))
+               @param {Object} event event object
+               @param {Object} editable editable instance (as here it cannot accessed via data('editable'))
                @since 1.2.0
                @example
                $('#username').on('init', function(e, editable) {
@@ -1728,10 +1728,10 @@ Makes editable any HTML element on the page. Applied as jQuery method.
             Fired when new value was submitted. You can use <code>$(this).data('editable')</code> to access to editable instance
             
             @event save 
-            @param {_Object} event event object
-            @param {_Object} params additional params
+            @param {Object} event event object
+            @param {Object} params additional params
             @param {mixed} params.newValue submitted value
-            @param {_Object} params.response ajax response
+            @param {Object} params.response ajax response
             @example
             $('#username').on('save', function(e, params) {
                 alert('Saved value: ' + params.newValue);
@@ -1807,7 +1807,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
     jQuery method to initialize editable element.
     
     @method $().editable(options)
-    @params {_Object} options
+    @params {Object} options
     @example
     $('#username').editable({
         type: 'text',
@@ -1823,7 +1823,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
             Runs client-side validation for all matched editables
             
             @method validate()
-            @returns {_Object} validation errors map
+            @returns {Object} validation errors map
             @example
             $('#username, #fullname').editable('validate');
             // possible result:
@@ -1847,7 +1847,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
             If value of some editable is `null` or `undefined` it is excluded from result object.  
              
             @method getValue()
-            @returns {_Object} object of element names and values
+            @returns {Object} object of element names and values
             @example
             $('#username, #fullname').editable('getValue');
             // possible result:
@@ -1877,7 +1877,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
             @param {object} options.ajaxOptions additional ajax options
             @param {function} options.error(obj) error handler 
             @param {function} options.success(obj,config) success handler
-            @returns {_Object} jQuery object
+            @returns {Object} jQuery object
             **/
             case 'submit':  //collects value, validate and submit to server for creating new record
                 var config = arguments[1] || {},

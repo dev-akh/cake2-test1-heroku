@@ -22,7 +22,7 @@
  *
  * @package Cake.Controller.Component.Acl
  */
-class PhpAcl extends _Object implements AclInterface {
+class PhpAcl extends Object implements AclInterface {
 
 /**
  * Constant for deny
@@ -48,14 +48,14 @@ class PhpAcl extends _Object implements AclInterface {
 	public $options = array();
 
 /**
- * Aro _Object
+ * Aro Object
  *
  * @var PhpAro
  */
 	public $Aro = null;
 
 /**
- * Aco _Object
+ * Aco Object
  *
  * @var PhpAco
  */
@@ -68,7 +68,7 @@ class PhpAcl extends _Object implements AclInterface {
  */
 	public function __construct() {
 		$this->options = array(
-			'policy' => self::DENY,
+			'policy' => static::DENY,
 			'config' => APP . 'Config' . DS . 'acl.php',
 		);
 	}
@@ -195,8 +195,7 @@ class PhpAcl extends _Object implements AclInterface {
 }
 
 /**
- * Access Control _Object
- *
+ * Access Control Object
  */
 class PhpAco {
 
@@ -252,7 +251,7 @@ class PhpAco {
 			}
 
 			foreach ($root as $node => $elements) {
-				$pattern = '/^' . str_replace(array_keys(self::$modifiers), array_values(self::$modifiers), $node) . '$/';
+				$pattern = '/^' . str_replace(array_keys(static::$modifiers), array_values(static::$modifiers), $node) . '$/';
 
 				if ($node == $aco[$level] || preg_match($pattern, $aco[$level])) {
 					// merge allow/denies with $path of current level
@@ -360,8 +359,7 @@ class PhpAco {
 }
 
 /**
- * Access Request _Object
- *
+ * Access Request Object
  */
 class PhpAro {
 
@@ -494,7 +492,7 @@ class PhpAro {
 				return $this->aliases[$mapped];
 			}
 		}
-		return self::DEFAULT_ROLE;
+		return static::DEFAULT_ROLE;
 	}
 
 /**

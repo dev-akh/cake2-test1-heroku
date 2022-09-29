@@ -17,7 +17,7 @@
  */
 
 /**
- * _Object wrapper for interacting with stdin
+ * Object wrapper for interacting with stdin
  *
  * @package       Cake.Console
  */

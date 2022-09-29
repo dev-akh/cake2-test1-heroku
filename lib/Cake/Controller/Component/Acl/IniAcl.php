@@ -22,7 +22,7 @@ App::uses('AclInterface', 'Controller/Component/Acl');
  *
  * @package       Cake.Controller.Component.Acl
  */
-class IniAcl extends _Object implements AclInterface {
+class IniAcl extends Object implements AclInterface {
 
 /**
  * Array with configuration, parsed from ini file

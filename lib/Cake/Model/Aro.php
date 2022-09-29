@@ -17,7 +17,7 @@
 App::uses('AclNode', 'Model');
 
 /**
- * Access Request _Object
+ * Access Request Object
  *
  * @package       Cake.Model
  */

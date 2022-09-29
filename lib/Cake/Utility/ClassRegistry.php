@@ -199,7 +199,7 @@ class ClassRegistry {
  * Add $object to the registry, associating it with the name $key.
  *
  * @param string $key Key for the object in registry
- * @param object $object _Object to store
+ * @param object $object Object to store
  * @return bool True if the object was written, false if $key already exists
  */
 	public static function addObject($key, $object) {
@@ -252,7 +252,7 @@ class ClassRegistry {
  * Return object which corresponds to given key.
  *
  * @param string $key Key of object to look for
- * @return mixed _Object stored in registry or boolean false if the object does not exist.
+ * @return mixed Object stored in registry or boolean false if the object does not exist.
  */
 	public static function getObject($key) {
 		$_this = ClassRegistry::getInstance();
@@ -296,7 +296,7 @@ class ClassRegistry {
 	}
 
 /**
- * Checks to see if $alias is a duplicate $class _Object
+ * Checks to see if $alias is a duplicate $class Object
  *
  * @param string $alias Alias to check.
  * @param string $class Class name.

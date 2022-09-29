@@ -450,7 +450,7 @@ jQuery.extend({
 	},
 
 	isPlainObject: function( obj ) {
-		// Must be an _Object.
+		// Must be an Object.
 		// Because of IE, we also have to check the presence of the constructor property.
 		// Make sure that DOM nodes and window objects don't pass through, as well
 		if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
@@ -458,7 +458,7 @@ jQuery.extend({
 		}
 
 		try {
-			// Not own constructor property must be _Object
+			// Not own constructor property must be Object
 			if ( obj.constructor &&
 				!core_hasOwn.call(obj, "constructor") &&
 				!core_hasOwn.call(obj.constructor.prototype, "isPrototypeOf") ) {
@@ -668,7 +668,7 @@ jQuery.extend({
 		var ret = results || [];
 
 		if ( arr != null ) {
-			if ( isArraylike( _Object(arr) ) ) {
+			if ( isArraylike( Object(arr) ) ) {
 				jQuery.merge( ret,
 					typeof arr === "string" ?
 					[ arr ] : arr
@@ -924,7 +924,7 @@ jQuery.ready.promise = function( obj ) {
 };
 
 // Populate the class2type map
-jQuery.each("Boolean Number String Function Array Date RegExp _Object Error".split(" "), function(i, name) {
+jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
@@ -947,10 +947,10 @@ function isArraylike( obj ) {
 
 // All jQuery objects should point back to these
 rootjQuery = jQuery(document);
-// String to _Object options format cache
+// String to Object options format cache
 var optionsCache = {};
 
-// Convert String-formatted options into _Object-formatted ones and store in cache
+// Convert String-formatted options into Object-formatted ones and store in cache
 function createOptions( options ) {
 	var object = optionsCache[ options ] = {};
 	jQuery.each( options.match( core_rnotwhite ) || [], function( _, flag ) {
@@ -983,7 +983,7 @@ function createOptions( options ) {
  */
 jQuery.Callbacks = function( options ) {
 
-	// Convert options from String-formatted to _Object-formatted if needed
+	// Convert options from String-formatted to Object-formatted if needed
 	// (we check in cache first)
 	options = typeof options === "string" ?
 		( optionsCache[ options ] || createOptions( options ) ) :
@@ -2896,7 +2896,7 @@ jQuery.event = {
 		}
 		ontype = type.indexOf(":") < 0 && "on" + type;
 
-		// Caller can pass in a jQuery.Event object, _Object, or just an event type string
+		// Caller can pass in a jQuery.Event object, Object, or just an event type string
 		event = event[ jQuery.expando ] ?
 			event :
 			new jQuery.Event( type, typeof event === "object" && event );
@@ -3081,7 +3081,7 @@ jQuery.event = {
 					for ( i = 0; i < delegateCount; i++ ) {
 						handleObj = handlers[ i ];
 
-						// Don't conflict with _Object.prototype properties (#13203)
+						// Don't conflict with Object.prototype properties (#13203)
 						sel = handleObj.selector + " ";
 
 						if ( matches[ sel ] === undefined ) {
@@ -3536,9 +3536,9 @@ jQuery.fn.extend({
 
 		// Types can be a map of types/handlers
 		if ( typeof types === "object" ) {
-			// ( types-_Object, selector, data )
+			// ( types-Object, selector, data )
 			if ( typeof selector !== "string" ) {
-				// ( types-_Object, data )
+				// ( types-Object, data )
 				data = data || selector;
 				selector = undefined;
 			}
@@ -3830,7 +3830,7 @@ function isNative( fn ) {
 
 /**
  * Create key-value caches of limited size
- * @returns {Function(string, _Object)} Returns the _Object data after storing it on itself with
+ * @returns {Function(string, Object)} Returns the Object data after storing it on itself with
  *	property name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)
  *	deleting the oldest entry
  */
@@ -3986,7 +3986,7 @@ function Sizzle( selector, context, results, seed ) {
 
 /**
  * Detect xml
- * @param {Element|_Object} elem An element or a document
+ * @param {Element|Object} elem An element or a document
  */
 isXML = Sizzle.isXML = function( elem ) {
 	// documentElement is verified for cases where it doesn't yet exist
@@ -3997,8 +3997,8 @@ isXML = Sizzle.isXML = function( elem ) {
 
 /**
  * Sets document-related variables once based on the current document
- * @param {Element|_Object} [doc] An element or document object to use to set the document
- * @returns {_Object} Returns the current document
+ * @param {Element|Object} [doc] An element or document object to use to set the document
+ * @returns {Object} Returns the current document
  */
 setDocument = Sizzle.setDocument = function( node ) {
 	var doc = node ? node.ownerDocument || node : preferredDoc;

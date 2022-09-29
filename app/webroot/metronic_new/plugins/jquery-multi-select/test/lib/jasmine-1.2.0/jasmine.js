@@ -52,7 +52,7 @@ jasmine.getGlobal = function() {
  *
  * @ignore
  * @private
- * @param base {_Object} bound 'this' for the function
+ * @param base {Object} bound 'this' for the function
  * @param name {Function} function to find
  */
 jasmine.bindOriginal_ = function(base, name) {
@@ -157,13 +157,13 @@ jasmine.isNumber_ = function(value) {
  * @returns {Boolean}
  */
 jasmine.isA_ = function(typeName, value) {
-  return _Object.prototype.toString.apply(value) === '[object ' + typeName + ']';
+  return Object.prototype.toString.apply(value) === '[object ' + typeName + ']';
 };
 
 /**
  * Pretty printer for expecations.  Takes any object and turns it into a human-readable string.
  *
- * @param value {_Object} an object to be outputted
+ * @param value {Object} an object to be outputted
  * @returns {String}
  */
 jasmine.pp = function(value) {
@@ -175,7 +175,7 @@ jasmine.pp = function(value) {
 /**
  * Returns true if the object is a DOM Node.
  *
- * @param {_Object} obj object to check
+ * @param {Object} obj object to check
  * @returns {Boolean}
  */
 jasmine.isDomNode = function(obj) {
@@ -204,7 +204,7 @@ jasmine.any = function(clazz) {
  * // don't care about any other attributes than foo.
  * expect(mySpy).toHaveBeenCalledWith(jasmine.objectContaining({foo: "bar"});
  *
- * @param sample {_Object} sample
+ * @param sample {Object} sample
  * @returns matchable object for the sample
  */
 jasmine.objectContaining = function (sample) {
@@ -261,7 +261,7 @@ jasmine.Spy = function(name) {
    */
   this.identity = name || 'unknown';
   /**
-   *  Is this _Object a spy?
+   *  Is this Object a spy?
    */
   this.isSpy = true;
   /**
@@ -318,7 +318,7 @@ jasmine.Spy.prototype.andCallThrough = function() {
  * // defining a spy on an existing property: foo.bar() returns 'baz'
  * spyOn(foo, 'bar').andReturn('baz');
  *
- * @param {_Object} value
+ * @param {Object} value
  */
 jasmine.Spy.prototype.andReturn = function(value) {
   this.plan = function() {
@@ -415,7 +415,7 @@ jasmine.createSpy = function(name) {
 /**
  * Determines whether an object is a spy.
  *
- * @param {jasmine.Spy|_Object} putativeSpy
+ * @param {jasmine.Spy|Object} putativeSpy
  * @returns {Boolean}
  */
 jasmine.isSpy = function(putativeSpy) {
@@ -423,7 +423,7 @@ jasmine.isSpy = function(putativeSpy) {
 };
 
 /**
- * Creates a more complicated spy: an _Object that has every property a function that is a spy.  Used for stubbing something
+ * Creates a more complicated spy: an Object that has every property a function that is a spy.  Used for stubbing something
  * large in one call.
  *
  * @param {String} baseName name of spy class
@@ -504,10 +504,10 @@ if (isCommonJS) exports.xit = xit;
 /**
  * Starts a chain for a Jasmine expectation.
  *
- * It is passed an _Object that is the actual value and should chain to one of the many
+ * It is passed an Object that is the actual value and should chain to one of the many
  * jasmine.Matchers functions.
  *
- * @param {_Object} actual Actual value to test against and expected value
+ * @param {Object} actual Actual value to test against and expected value
  */
 var expect = function(actual) {
   return jasmine.getEnv().currentSpec.expect(actual);
@@ -1398,7 +1398,7 @@ jasmine.Matchers.prototype.wasNotCalledWith = function() {
 /**
  * Matcher that checks that the expected item is an element in the actual Array.
  *
- * @param {_Object} expected
+ * @param {Object} expected
  */
 jasmine.Matchers.prototype.toContain = function(expected) {
   return this.env.contains_(this.actual, expected);
@@ -1407,7 +1407,7 @@ jasmine.Matchers.prototype.toContain = function(expected) {
 /**
  * Matcher that checks that the expected item is NOT an element in the actual Array.
  *
- * @param {_Object} expected
+ * @param {Object} expected
  * @deprecated as of 1.0. Use not.toContain() instead.
  */
 jasmine.Matchers.prototype.toNotContain = function(expected) {
@@ -1489,7 +1489,7 @@ jasmine.Matchers.Any.prototype.jasmineMatches = function(other) {
     return typeof other == 'function' || other instanceof Function;
   }
 
-  if (this.expectedClass == _Object) {
+  if (this.expectedClass == Object) {
     return typeof other == 'object';
   }
 
@@ -1867,7 +1867,7 @@ jasmine.PrettyPrinter.prototype.format = function(value) {
     } else if (value instanceof Date) {
       this.emitScalar('Date(' + value + ')');
     } else if (value.__Jasmine_been_here_before__) {
-      this.emitScalar('<circular reference: ' + (jasmine.isArray_(value) ? 'Array' : '_Object') + '>');
+      this.emitScalar('<circular reference: ' + (jasmine.isArray_(value) ? 'Array' : 'Object') + '>');
     } else if (jasmine.isArray_(value) || typeof value == 'object') {
       value.__Jasmine_been_here_before__ = true;
       if (jasmine.isArray_(value)) {

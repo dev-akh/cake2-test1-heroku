@@ -9,11 +9,9 @@
  * @since         CakePHP(tm) v 0.2.9
  */
 
-/*
- *
+/**
  * Using the Schema command line utility
  * cake schema run create DbAcl
- *
  */
 class DbAclSchema extends CakeSchema {
 
@@ -37,7 +35,7 @@ class DbAclSchema extends CakeSchema {
 	}
 
 /**
- * ACO - Access Control _Object - Something that is wanted
+ * ACO - Access Control Object - Something that is wanted
  */
 	public $acos = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'key' => 'primary'),
@@ -51,7 +49,7 @@ class DbAclSchema extends CakeSchema {
 	);
 
 /**
- * ARO - Access Request _Object - Something that wants something
+ * ARO - Access Request Object - Something that wants something
  */
 	public $aros = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'key' => 'primary'),

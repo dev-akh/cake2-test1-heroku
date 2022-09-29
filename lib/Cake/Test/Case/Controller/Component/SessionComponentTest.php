@@ -91,7 +91,7 @@ class SessionComponentTest extends CakeTestCase {
  * @return void
  */
 	public static function setupBeforeClass() {
-		self::$_sessionBackup = Configure::read('Session');
+		static::$_sessionBackup = Configure::read('Session');
 		Configure::write('Session', array(
 			'defaults' => 'php',
 			'timeout' => 100,
@@ -105,7 +105,7 @@ class SessionComponentTest extends CakeTestCase {
  * @return void
  */
 	public static function teardownAfterClass() {
-		Configure::write('Session', self::$_sessionBackup);
+		Configure::write('Session', static::$_sessionBackup);
 	}
 
 /**
@@ -135,14 +135,14 @@ class SessionComponentTest extends CakeTestCase {
  * @return void
  */
 	public function testSessionIdConsistentAcrossRequestAction() {
-		$_Object = new _Object();
+		$Object = new Object();
 		$Session = new SessionComponent($this->ComponentCollection);
 		$expected = $Session->id();
 
-		$result = $_Object->requestAction('/session_test/sessionId');
+		$result = $Object->requestAction('/session_test/sessionId');
 		$this->assertEquals($expected, $result);
 
-		$result = $_Object->requestAction('/orange_session_test/sessionId');
+		$result = $Object->requestAction('/orange_session_test/sessionId');
 		$this->assertEquals($expected, $result);
 	}
 
@@ -202,7 +202,6 @@ class SessionComponentTest extends CakeTestCase {
 		$this->assertEquals($Session->read('Test'), $array);
 		$Session->delete('Test');
 
-		$this->assertTrue($Session->write(array('Test'), 'some value'));
 		$this->assertTrue($Session->write(array('Test' => 'some value')));
 		$this->assertEquals('some value', $Session->read('Test'));
 		$Session->delete('Test');

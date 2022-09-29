@@ -545,7 +545,7 @@ class CakeTimeTest extends CakeTestCase {
 		$expected = date('l jS \of F Y h:i:s A', $time);
 		$this->assertEquals($expected, $result);
 
-		$this->assertFalse($this->Time->toServer(time(), new _Object()));
+		$this->assertFalse($this->Time->toServer(time(), new Object()));
 
 		date_default_timezone_set('UTC');
 
@@ -1075,12 +1075,12 @@ class CakeTimeTest extends CakeTestCase {
 	}
 
 /**
- * test convert %e on windows.
+ * test convert %e on Windows.
  *
  * @return void
  */
 	public function testConvertPercentE() {
-		$this->skipIf(DIRECTORY_SEPARATOR !== '\\', 'Cannot run windows tests on non-windows OS.');
+		$this->skipIf(DIRECTORY_SEPARATOR !== '\\', 'Cannot run Windows tests on non-Windows OS.');
 
 		$time = strtotime('Thu Jan 14 11:43:39 2010');
 		$result = $this->Time->convertSpecifiers('%e', $time);
@@ -1165,6 +1165,19 @@ class CakeTimeTest extends CakeTestCase {
 		$return = CakeTime::listTimezones('#^Asia/#');
 		$this->assertTrue(isset($return['Asia']['Asia/Bangkok']));
 		$this->assertFalse(isset($return['Pacific']));
+
+		$return = CakeTime::listTimezones(null, null, array('abbr' => true));
+		$this->assertTrue(isset($return['Asia']['Asia/Jakarta']));
+		$this->assertEquals('Jakarta - WIB', $return['Asia']['Asia/Jakarta']);
+		$this->assertEquals('Regina - CST', $return['America']['America/Regina']);
+
+		$return = CakeTime::listTimezones(null, null, array(
+			'abbr' => true,
+			'before' => ' (',
+			'after' => ')',
+		));
+		$this->assertEquals('Jayapura (WIT)', $return['Asia']['Asia/Jayapura']);
+		$this->assertEquals('Regina (CST)', $return['America']['America/Regina']);
 
 		$return = CakeTime::listTimezones('#^(America|Pacific)/#', null, false);
 		$this->assertTrue(isset($return['America/Argentina/Buenos_Aires']));

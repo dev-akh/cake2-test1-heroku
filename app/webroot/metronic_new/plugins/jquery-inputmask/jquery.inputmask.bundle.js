@@ -124,11 +124,11 @@
                                     $input.removeClass('focus.inputmask');
                                     //restore the value property
                                     var valueProperty;
-                                    if (_Object.getOwnPropertyDescriptor)
-                                        valueProperty = _Object.getOwnPropertyDescriptor(input, "value");
+                                    if (Object.getOwnPropertyDescriptor)
+                                        valueProperty = Object.getOwnPropertyDescriptor(input, "value");
                                     if (valueProperty && valueProperty.get) {
                                         if (input._valueGet) {
-                                            _Object.defineProperty(input, "value", {
+                                            Object.defineProperty(input, "value", {
                                                 get: input._valueGet,
                                                 set: input._valueSet
                                             });
@@ -949,15 +949,15 @@
 
                 function patchValueProperty(npt) {
                     var valueProperty;
-                    if (_Object.getOwnPropertyDescriptor)
-                        valueProperty = _Object.getOwnPropertyDescriptor(npt, "value");
+                    if (Object.getOwnPropertyDescriptor)
+                        valueProperty = Object.getOwnPropertyDescriptor(npt, "value");
                     if (valueProperty && valueProperty.get) {
                         if (!npt._valueGet) {
 
                             npt._valueGet = valueProperty.get;
                             npt._valueSet = valueProperty.set;
 
-                            _Object.defineProperty(npt, "value", {
+                            Object.defineProperty(npt, "value", {
                                 get: function () {
                                     var $self = $(this), inputData = $(this).data('inputmask'), masksets = inputData['masksets'],
                                     activeMasksetIndex = inputData['activeMasksetIndex'];

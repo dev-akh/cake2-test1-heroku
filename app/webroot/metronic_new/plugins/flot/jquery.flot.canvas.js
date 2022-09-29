@@ -37,7 +37,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 
 	// Cache the prototype hasOwnProperty for faster access
 
-	var hasOwnProperty = _Object.prototype.hasOwnProperty;
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 	function init(plot, classes) {
 

@@ -85,14 +85,14 @@ version 1.5 (3/19/11)
 	- fullcalendar now inherits styles from jquery-ui themes differently.
 	  styles for buttons are distinct from styles for calendar cells.
 	  (solves issue 299)
-	- can now color events through FullCalendar options and Event-_Object properties (issue 117)
+	- can now color events through FullCalendar options and Event-Object properties (issue 117)
 	  THIS IS NOW THE PREFERRED METHOD OF COLORING EVENTS (as opposed to using className and CSS)
 		- FullCalendar options:
 			- eventColor (changes both background and border)
 			- eventBackgroundColor
 			- eventBorderColor
 			- eventTextColor
-		- Event-_Object options:
+		- Event-Object options:
 			- color (changes both background and border)
 			- backgroundColor
 			- borderColor

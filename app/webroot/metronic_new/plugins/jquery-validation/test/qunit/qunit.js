@@ -16,8 +16,8 @@ var QUnit,
 	onErrorFnPrev,
 	testId = 0,
 	fileName = (sourceFromStacktrace( 0 ) || "" ).replace(/(:\d+)+\)?/, "").replace(/.+\//, ""),
-	toString = _Object.prototype.toString,
-	hasOwn = _Object.prototype.hasOwnProperty,
+	toString = Object.prototype.toString,
+	hasOwn = Object.prototype.hasOwnProperty,
 	// Keep a local reference to Date (GH-283)
 	Date = window.Date,
 	defined = {
@@ -63,11 +63,11 @@ var QUnit,
 		}
 	},
 	/**
-	 * Makes a clone of an object using only Array or _Object as base,
+	 * Makes a clone of an object using only Array or Object as base,
 	 * and copies over the own enumerable properties.
 	 *
-	 * @param {_Object} obj
-	 * @return {_Object} New object with only the own properties (recursively).
+	 * @param {Object} obj
+	 * @return {Object} New object with only the own properties (recursively).
 	 */
 	objectValues = function( obj ) {
 		// Grunt 0.3.x uses an older version of jshint that still has jshint/jshint#392.
@@ -77,7 +77,7 @@ var QUnit,
 		for ( key in obj ) {
 			if ( hasOwn.call( obj, key ) ) {
 				val = obj[key];
-				vals[key] = val === _Object(val) ? objectValues(val) : val;
+				vals[key] = val === Object(val) ? objectValues(val) : val;
 			}
 		}
 		return vals;
@@ -1586,7 +1586,7 @@ QUnit.equiv = (function() {
 		// stack to avoiding loops from circular referencing
 		parents = [],
 
-		getProto = _Object.getPrototypeOf || function ( obj ) {
+		getProto = Object.getPrototypeOf || function ( obj ) {
 			return obj.__proto__;
 		},
 		callbacks = (function () {
@@ -1637,7 +1637,7 @@ QUnit.equiv = (function() {
 				// initial === would have catch identical references anyway
 				"function": function() {
 					var caller = callers[callers.length - 1];
-					return caller !== _Object && typeof caller !== "undefined";
+					return caller !== Object && typeof caller !== "undefined";
 				},
 
 				"array": function( b, a ) {
@@ -1683,9 +1683,9 @@ QUnit.equiv = (function() {
 					// instanceof
 					if ( a.constructor !== b.constructor ) {
 						// Allow objects with no prototype to be equivalent to
-						// objects with _Object as their constructor.
-						if ( !(( getProto(a) === null && getProto(b) === _Object.prototype ) ||
-							( getProto(b) === null && getProto(a) === _Object.prototype ) ) ) {
+						// objects with Object as their constructor.
+						if ( !(( getProto(a) === null && getProto(b) === Object.prototype ) ||
+							( getProto(b) === null && getProto(a) === Object.prototype ) ) ) {
 								return false;
 						}
 					}

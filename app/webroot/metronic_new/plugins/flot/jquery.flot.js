@@ -36,7 +36,7 @@ Licensed under the MIT license.
 
 	// Cache the prototype hasOwnProperty for faster access
 
-	var hasOwnProperty = _Object.prototype.hasOwnProperty;
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 	///////////////////////////////////////////////////////////////////////////
 	// The Canvas object is a wrapper around an HTML5 <canvas> tag.
