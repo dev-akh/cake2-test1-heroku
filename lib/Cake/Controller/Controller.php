@@ -54,7 +54,7 @@ App::uses('CakeEventManager', 'Event');
  * @property      SessionComponent $Session
  * @link          http://book.cakephp.org/2.0/en/controllers.html
  */
-class Controller extends _Object implements CakeEventListener {
+class Controller implements CakeEventListener {
 
 /**
  * The name of this controller. Controller names are plural, named after the model they manipulate.
@@ -339,7 +339,7 @@ class Controller extends _Object implements CakeEventListener {
 		if ($response instanceof CakeResponse) {
 			$this->response = $response;
 		}
-		parent::__construct();
+		// parent::__construct();
 	}
 
 /**
