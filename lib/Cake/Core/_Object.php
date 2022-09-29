@@ -27,7 +27,7 @@ App::uses('Set', 'Utility');
  *
  * @package       Cake.Core
  */
-class Object_ {
+class _Object {
 
 /**
  * Constructor, no-op
