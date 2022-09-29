@@ -24,7 +24,7 @@
 
   /**
    * Simulate a mouse event based on a corresponding touch event
-   * @param {Object} event A touch event
+   * @param {_Object} event A touch event
    * @param {String} simulatedType The corresponding mouse event
    */
   function simulateMouseEvent (event, simulatedType) {
@@ -64,7 +64,7 @@
 
   /**
    * Handle the jQuery UI widget's touchstart events
-   * @param {Object} event The widget element's touchstart event
+   * @param {_Object} event The widget element's touchstart event
    */
   mouseProto._touchStart = function (event) {
 
@@ -93,7 +93,7 @@
 
   /**
    * Handle the jQuery UI widget's touchmove events
-   * @param {Object} event The document's touchmove event
+   * @param {_Object} event The document's touchmove event
    */
   mouseProto._touchMove = function (event) {
 
@@ -111,7 +111,7 @@
 
   /**
    * Handle the jQuery UI widget's touchend events
-   * @param {Object} event The document's touchend event
+   * @param {_Object} event The document's touchend event
    */
   mouseProto._touchEnd = function (event) {
 

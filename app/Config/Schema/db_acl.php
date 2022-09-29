@@ -45,7 +45,7 @@ class DbAclSchema extends CakeSchema {
 	}
 
 /**
- * ACO - Access Control Object - Something that is wanted
+ * ACO - Access Control _Object - Something that is wanted
  */
 	public $acos = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'key' => 'primary'),
@@ -63,7 +63,7 @@ class DbAclSchema extends CakeSchema {
 	);
 
 /**
- * ARO - Access Request Object - Something that wants something
+ * ARO - Access Request _Object - Something that wants something
  */
 	public $aros = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'key' => 'primary'),

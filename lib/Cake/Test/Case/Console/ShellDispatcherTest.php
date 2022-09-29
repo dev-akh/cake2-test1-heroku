@@ -479,9 +479,9 @@ class ShellDispatcherTest extends CakeTestCase {
  */
 	public function testDispatchNotAShellWithMain() {
 		$Dispatcher = new TestShellDispatcher();
-		$methods = get_class_methods('Object');
+		$methods = get_class_methods('_Object');
 		array_push($methods, 'main', 'initdb', 'initialize', 'loadTasks', 'startup', '_secret');
-		$Shell = $this->getMock('Object', $methods);
+		$Shell = $this->getMock('_Object', $methods);
 
 		$Shell->expects($this->never())->method('initialize');
 		$Shell->expects($this->once())->method('startup');
@@ -493,7 +493,7 @@ class ShellDispatcherTest extends CakeTestCase {
 		$this->assertTrue($result);
 		$this->assertEquals(array(), $Dispatcher->args);
 
-		$Shell = $this->getMock('Object', $methods);
+		$Shell = $this->getMock('_Object', $methods);
 		$Shell->expects($this->once())->method('initdb')->will($this->returnValue(true));
 		$Shell->expects($this->once())->method('startup');
 		$Dispatcher->TestShell = $Shell;
@@ -510,9 +510,9 @@ class ShellDispatcherTest extends CakeTestCase {
  */
 	public function testDispatchNotAShellWithoutMain() {
 		$Dispatcher = new TestShellDispatcher();
-		$methods = get_class_methods('Object');
+		$methods = get_class_methods('_Object');
 		array_push($methods, 'main', 'initdb', 'initialize', 'loadTasks', 'startup', '_secret');
-		$Shell = $this->getMock('Object', $methods);
+		$Shell = $this->getMock('_Object', $methods);
 
 		$Shell->expects($this->never())->method('initialize');
 		$Shell->expects($this->once())->method('startup');
@@ -524,7 +524,7 @@ class ShellDispatcherTest extends CakeTestCase {
 		$this->assertTrue($result);
 		$this->assertEquals(array(), $Dispatcher->args);
 
-		$Shell = $this->getMock('Object', $methods);
+		$Shell = $this->getMock('_Object', $methods);
 		$Shell->expects($this->once())->method('initdb')->will($this->returnValue(true));
 		$Shell->expects($this->once())->method('startup');
 		$Dispatcher->TestShell = $Shell;

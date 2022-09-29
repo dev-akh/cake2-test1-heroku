@@ -103,7 +103,7 @@
 
   // Abstraction layer for different transport layers, including fleegix/jQuery/Zepto
   //
-  // Object `opts` include
+  // _Object `opts` include
   //
   // - `url`: url to ajax query
   //
@@ -164,7 +164,7 @@
     // - `Array`: Can be any combo of the above.
     //
     //If 1st argument is an array, we can use it as a list of arguments itself
-    if (Object.prototype.toString.call(args[0]) === '[object Array]') {
+    if (_Object.prototype.toString.call(args[0]) === '[object Array]') {
       args = args[0];
     }
     if (typeof args[args.length - 1] === 'string' && TZ_REGEXP.test(args[args.length - 1])) {

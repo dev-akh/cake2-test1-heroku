@@ -4,7 +4,7 @@
  * Require the given path.
  *
  * @param {String} path
- * @return {Object} exports
+ * @return {_Object} exports
  * @api public
  */
 
@@ -221,8 +221,8 @@ function Emitter(obj) {
 /**
  * Mixin the emitter properties.
  *
- * @param {Object} obj
- * @return {Object}
+ * @param {_Object} obj
+ * @return {_Object}
  * @api private
  */
 

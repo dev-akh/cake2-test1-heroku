@@ -28,7 +28,7 @@ App::uses('File', 'Utility');
  *
  * @package       Cake.Console
  */
-class Shell extends Object {
+class Shell extends _Object {
 
 /**
  * Output constant making verbose shells.
@@ -355,7 +355,7 @@ class Shell extends Object {
 	}
 
 /**
- * Dispatch a command to another Shell. Similar to Object::requestAction()
+ * Dispatch a command to another Shell. Similar to _Object::requestAction()
  * but intended for running shells from other shells.
  *
  * ### Usage:
@@ -485,7 +485,7 @@ class Shell extends Object {
  * Overload get for lazy building of tasks
  *
  * @param string $name The property name to access.
- * @return Shell Object of Task
+ * @return Shell _Object of Task
  */
 	public function __get($name) {
 		if (empty($this->{$name}) && in_array($name, $this->taskNames)) {

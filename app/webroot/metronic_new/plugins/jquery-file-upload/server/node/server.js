@@ -174,7 +174,7 @@
                 baseUrl = (options.ssl ? 'https:' : 'http:') +
                     '//' + req.headers.host + options.uploadUrl;
             this.url = this.delete_url = baseUrl + encodeURIComponent(this.name);
-            Object.keys(options.imageVersions).forEach(function (version) {
+            _Object.keys(options.imageVersions).forEach(function (version) {
                 if (_existsSync(
                         options.uploadDir + '/' + version + '/' + that.name
                     )) {
@@ -240,7 +240,7 @@
             }
             fs.renameSync(file.path, options.uploadDir + '/' + fileInfo.name);
             if (options.imageTypes.test(fileInfo.name)) {
-                Object.keys(options.imageVersions).forEach(function (version) {
+                _Object.keys(options.imageVersions).forEach(function (version) {
                     counter += 1;
                     var opts = options.imageVersions[version];
                     imageMagick.resize({
@@ -270,7 +270,7 @@
         if (handler.req.url.slice(0, options.uploadUrl.length) === options.uploadUrl) {
             fileName = path.basename(decodeURIComponent(handler.req.url));
             fs.unlink(options.uploadDir + '/' + fileName, function (ex) {
-                Object.keys(options.imageVersions).forEach(function (version) {
+                _Object.keys(options.imageVersions).forEach(function (version) {
                     fs.unlink(options.uploadDir + '/' + version + '/' + fileName);
                 });
                 handler.callback({success: !ex});

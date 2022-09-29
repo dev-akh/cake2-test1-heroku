@@ -16,7 +16,7 @@
  */
 
 /**
- * Object wrapper for outputting information from a shell application.
+ * _Object wrapper for outputting information from a shell application.
  * Can be connected to any stream resource that can be used with fopen()
  *
  * Can generate colorized output on consoles that support it. There are a few

@@ -25,8 +25,8 @@ var defined = {
 };
 
 var	testId = 0,
-	toString = Object.prototype.toString,
-	hasOwn = Object.prototype.hasOwnProperty;
+	toString = _Object.prototype.toString,
+	hasOwn = _Object.prototype.hasOwnProperty;
 
 var Test = function(name, testName, expected, async, callback) {
 	this.name = name;
@@ -1111,7 +1111,7 @@ QUnit.equiv = (function() {
 		}
 	}
 
-	var getProto = Object.getPrototypeOf || function (obj) {
+	var getProto = _Object.getPrototypeOf || function (obj) {
 		return obj.__proto__;
 	};
 
@@ -1161,7 +1161,7 @@ QUnit.equiv = (function() {
 			// initial === would have catch identical references anyway
 			"function" : function() {
 				var caller = callers[callers.length - 1];
-				return caller !== Object && typeof caller !== "undefined";
+				return caller !== _Object && typeof caller !== "undefined";
 			},
 
 			"array" : function(b, a) {
@@ -1206,9 +1206,9 @@ QUnit.equiv = (function() {
 				// instanceof
 				if (a.constructor !== b.constructor) {
 					// Allow objects with no prototype to be equivalent to
-					// objects with Object as their constructor.
-					if (!((getProto(a) === null && getProto(b) === Object.prototype) ||
-						(getProto(b) === null && getProto(a) === Object.prototype)))
+					// objects with _Object as their constructor.
+					if (!((getProto(a) === null && getProto(b) === _Object.prototype) ||
+						(getProto(b) === null && getProto(a) === _Object.prototype)))
 					{
 						return false;
 					}
@@ -1417,8 +1417,8 @@ QUnit.jsDump = (function() {
 			object: function( map, stack ) {
 				var ret = [ ], keys, key, val, i;
 				QUnit.jsDump.up();
-				if (Object.keys) {
-					keys = Object.keys( map );
+				if (_Object.keys) {
+					keys = _Object.keys( map );
 				} else {
 					keys = [];
 					for (key in map) { keys.push( key ); }

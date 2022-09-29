@@ -61,12 +61,12 @@ class BlowfishAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testConstructor() {
-		$Object = new BlowfishAuthenticate($this->Collection, array(
+		$_Object = new BlowfishAuthenticate($this->Collection, array(
 			'userModel' => 'AuthUser',
 			'fields' => array('username' => 'user', 'password' => 'password')
 		));
-		$this->assertEquals('AuthUser', $Object->settings['userModel']);
-		$this->assertEquals(array('username' => 'user', 'password' => 'password'), $Object->settings['fields']);
+		$this->assertEquals('AuthUser', $_Object->settings['userModel']);
+		$this->assertEquals(array('username' => 'user', 'password' => 'password'), $_Object->settings['fields']);
 	}
 
 /**

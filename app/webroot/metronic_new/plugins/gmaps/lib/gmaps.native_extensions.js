@@ -82,7 +82,7 @@ if (!Array.prototype.indexOf) {
       if (this == null) {
           throw new TypeError();
       }
-      var t = Object(this);
+      var t = _Object(this);
       var len = t.length >>> 0;
       if (len === 0) {
           return -1;

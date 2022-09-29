@@ -33,7 +33,7 @@
     };
 
     /**
-     * Kontrol Object
+     * Kontrol _Object
      *
      * Definition of an abstract UI control
      *
@@ -156,7 +156,7 @@
                         this.o.height + 'px;"></div>'))
                 .before(this.$c);
 
-            if (this.v instanceof Object) {
+            if (this.v instanceof _Object) {
                 this.cv = {};
                 this.copy(this.v, this.cv);
             } else {

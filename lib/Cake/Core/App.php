@@ -889,7 +889,7 @@ class App {
 	}
 
 /**
- * Object destructor.
+ * _Object destructor.
  *
  * Writes cache file if changes have been made to the $_map. Also, check if a fatal
  * error happened and call the handler.

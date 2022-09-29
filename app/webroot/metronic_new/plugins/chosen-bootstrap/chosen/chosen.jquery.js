@@ -277,7 +277,7 @@ Copyright (c) 2011 by Harvest
 
 (function() {
   var $, Chosen, get_side_border_padding, root,
-    __hasProp = Object.prototype.hasOwnProperty,
+    __hasProp = _Object.prototype.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; };
 
   root = this;

@@ -87,8 +87,8 @@ var jQuery = function( selector, context ) {
 	DOMContentLoaded,
 
 	// Save a reference to some core methods
-	toString = Object.prototype.toString,
-	hasOwn = Object.prototype.hasOwnProperty,
+	toString = _Object.prototype.toString,
+	hasOwn = _Object.prototype.hasOwnProperty,
 	push = Array.prototype.push,
 	slice = Array.prototype.slice,
 	trim = String.prototype.trim,
@@ -515,7 +515,7 @@ jQuery.extend({
 	},
 
 	isPlainObject: function( obj ) {
-		// Must be an Object.
+		// Must be an _Object.
 		// Because of IE, we also have to check the presence of the constructor property.
 		// Make sure that DOM nodes and window objects don't pass through, as well
 		if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
@@ -523,7 +523,7 @@ jQuery.extend({
 		}
 
 		try {
-			// Not own constructor property must be Object
+			// Not own constructor property must be _Object
 			if ( obj.constructor &&
 				!hasOwn.call(obj, "constructor") &&
 				!hasOwn.call(obj.constructor.prototype, "isPrototypeOf") ) {
@@ -892,7 +892,7 @@ jQuery.extend({
 });
 
 // Populate the class2type map
-jQuery.each("Boolean Number String Function Array Date RegExp Object".split(" "), function(i, name) {
+jQuery.each("Boolean Number String Function Array Date RegExp _Object".split(" "), function(i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
@@ -2867,11 +2867,11 @@ jQuery.event = {
 			return;
 		}
 
-		// Caller can pass in an Event, Object, or just an event type string
+		// Caller can pass in an Event, _Object, or just an event type string
 		event = typeof event === "object" ?
 			// jQuery.Event object
 			event[ jQuery.expando ] ? event :
-			// Object literal
+			// _Object literal
 			new jQuery.Event( type, event ) :
 			// Just the event type (string)
 			new jQuery.Event( type );
@@ -3777,7 +3777,7 @@ jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblcl
 
 var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g,
 	done = 0,
-	toString = Object.prototype.toString,
+	toString = _Object.prototype.toString,
 	hasDuplicate = false,
 	baseHasDuplicate = true,
 	rBackslash = /\\/g,

@@ -53,7 +53,7 @@ App::uses('CakeResponse', 'Network');
  * @property      TimeHelper $Time
  * @property      ViewBlock $Blocks
  */
-class View extends Object {
+class View extends _Object {
 
 /**
  * Helpers collection

@@ -28,7 +28,7 @@ App::uses('Validation', 'Utility');
 class CakeSocket {
 
 /**
- * Object description
+ * _Object description
  *
  * @var string
  */
@@ -354,7 +354,7 @@ class CakeSocket {
 	}
 
 /**
- * Resets the state of this Socket instance to it's initial state (before Object::__construct got executed)
+ * Resets the state of this Socket instance to it's initial state (before _Object::__construct got executed)
  *
  * @param array $state Array with key and values to reset
  * @return bool True on success

@@ -34,8 +34,8 @@ var
 	core_push = Array.prototype.push,
 	core_slice = Array.prototype.slice,
 	core_indexOf = Array.prototype.indexOf,
-	core_toString = Object.prototype.toString,
-	core_hasOwn = Object.prototype.hasOwnProperty,
+	core_toString = _Object.prototype.toString,
+	core_hasOwn = _Object.prototype.hasOwnProperty,
 	core_trim = String.prototype.trim,
 
 	// Define a local copy of jQuery
@@ -437,7 +437,7 @@ jQuery.extend({
 	},
 
 	isPlainObject: function( obj ) {
-		// Must be an Object.
+		// Must be an _Object.
 		// Because of IE, we also have to check the presence of the constructor property.
 		// Make sure that DOM nodes and window objects don't pass through, as well
 		if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
@@ -445,7 +445,7 @@ jQuery.extend({
 		}
 
 		try {
-			// Not own constructor property must be Object
+			// Not own constructor property must be _Object
 			if ( obj.constructor &&
 				!core_hasOwn.call(obj, "constructor") &&
 				!core_hasOwn.call(obj.constructor.prototype, "isPrototypeOf") ) {
@@ -898,16 +898,16 @@ jQuery.ready.promise = function( obj ) {
 };
 
 // Populate the class2type map
-jQuery.each("Boolean Number String Function Array Date RegExp Object".split(" "), function(i, name) {
+jQuery.each("Boolean Number String Function Array Date RegExp _Object".split(" "), function(i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
 // All jQuery objects should point back to these
 rootjQuery = jQuery(document);
-// String to Object options format cache
+// String to _Object options format cache
 var optionsCache = {};
 
-// Convert String-formatted options into Object-formatted ones and store in cache
+// Convert String-formatted options into _Object-formatted ones and store in cache
 function createOptions( options ) {
 	var object = optionsCache[ options ] = {};
 	jQuery.each( options.split( core_rspace ), function( _, flag ) {
@@ -940,7 +940,7 @@ function createOptions( options ) {
  */
 jQuery.Callbacks = function( options ) {
 
-	// Convert options from String-formatted to Object-formatted if needed
+	// Convert options from String-formatted to _Object-formatted if needed
 	// (we check in cache first)
 	options = typeof options === "string" ?
 		( optionsCache[ options ] || createOptions( options ) ) :
@@ -2867,11 +2867,11 @@ jQuery.event = {
 			return;
 		}
 
-		// Caller can pass in an Event, Object, or just an event type string
+		// Caller can pass in an Event, _Object, or just an event type string
 		event = typeof event === "object" ?
 			// jQuery.Event object
 			event[ jQuery.expando ] ? event :
-			// Object literal
+			// _Object literal
 			new jQuery.Event( type, event ) :
 			// Just the event type (string)
 			new jQuery.Event( type );
@@ -3487,9 +3487,9 @@ jQuery.fn.extend({
 
 		// Types can be a map of types/handlers
 		if ( typeof types === "object" ) {
-			// ( types-Object, selector, data )
+			// ( types-_Object, selector, data )
 			if ( typeof selector !== "string" ) { // && selector != null
-				// ( types-Object, data )
+				// ( types-_Object, data )
 				data = data || selector;
 				selector = undefined;
 			}
@@ -3720,7 +3720,7 @@ var cachedruns,
 				delete cache[ keys.shift() ];
 			}
 
-			// Retrieve with (key + " ") to avoid collision with native Object.prototype properties (see Issue #157)
+			// Retrieve with (key + " ") to avoid collision with native _Object.prototype properties (see Issue #157)
 			return (cache[ key + " " ] = value);
 		}, cache );
 	},

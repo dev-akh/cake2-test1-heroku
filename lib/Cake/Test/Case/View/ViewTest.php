@@ -926,8 +926,8 @@ class ViewTest extends CakeTestCase {
 		$View->helpers = array('Html', 'Form');
 		$View->loadHelpers();
 
-		$this->assertInstanceOf('HtmlHelper', $View->Html, 'Object type is wrong.');
-		$this->assertInstanceOf('FormHelper', $View->Form, 'Object type is wrong.');
+		$this->assertInstanceOf('HtmlHelper', $View->Html, '_Object type is wrong.');
+		$this->assertInstanceOf('FormHelper', $View->Form, '_Object type is wrong.');
 	}
 
 /**
@@ -939,8 +939,8 @@ class ViewTest extends CakeTestCase {
 		$View = new View($this->PostsController);
 
 		$View->helpers = array();
-		$this->assertInstanceOf('HtmlHelper', $View->Html, 'Object type is wrong.');
-		$this->assertInstanceOf('FormHelper', $View->Form, 'Object type is wrong.');
+		$this->assertInstanceOf('HtmlHelper', $View->Html, '_Object type is wrong.');
+		$this->assertInstanceOf('FormHelper', $View->Form, '_Object type is wrong.');
 	}
 
 /**
@@ -1452,7 +1452,7 @@ class ViewTest extends CakeTestCase {
 /**
  * Test setting a block's content to an object without __toString magic method
  *
- * This should produce a "Object of class TestObjectWithoutToString could not be converted to string" error
+ * This should produce a "_Object of class TestObjectWithoutToString could not be converted to string" error
  * which gets thrown as a PHPUnit_Framework_Error Exception by PHPUnit.
  *
  * @expectedException PHPUnit_Framework_Error
@@ -1505,7 +1505,7 @@ class ViewTest extends CakeTestCase {
 /**
  * Test appending an object without __toString magic method to a block with append.
  *
- * This should produce a "Object of class TestObjectWithoutToString could not be converted to string" error
+ * This should produce a "_Object of class TestObjectWithoutToString could not be converted to string" error
  * which gets thrown as a PHPUnit_Framework_Error Exception by PHPUnit.
  *
  * @expectedException PHPUnit_Framework_Error
@@ -1534,7 +1534,7 @@ class ViewTest extends CakeTestCase {
 /**
  * Test prepending an object without __toString magic method to a block with prepend.
  *
- * This should produce a "Object of class TestObjectWithoutToString could not be converted to string" error
+ * This should produce a "_Object of class TestObjectWithoutToString could not be converted to string" error
  * which gets thrown as a PHPUnit_Framework_Error Exception by PHPUnit.
  *
  * @expectedException PHPUnit_Framework_Error

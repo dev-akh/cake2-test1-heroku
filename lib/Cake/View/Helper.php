@@ -24,7 +24,7 @@ App::uses('Inflector', 'Utility');
  *
  * @package       Cake.View
  */
-class Helper extends Object {
+class Helper extends _Object {
 
 /**
  * Settings for this helper.

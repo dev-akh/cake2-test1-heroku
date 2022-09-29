@@ -852,7 +852,7 @@ class Set {
 /**
  * Converts an object into an array.
  *
- * @param object $object Object to reverse
+ * @param object $object _Object to reverse
  * @return array Array representation of given object
  * @link http://book.cakephp.org/2.0/en/core-utility-libraries/set.html#Set::reverse
  */

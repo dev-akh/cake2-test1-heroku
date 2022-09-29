@@ -65,12 +65,12 @@ var Calendar = function () {
            
 
             var initDrag = function (el) {
-                // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                // create an Event _Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
                 // it doesn't need to have a start or end
                 var eventObject = {
                     title: $.trim(el.text()) // use the element's text as the event title
                 };
-                // store the Event Object in the DOM element so we can get to it later
+                // store the Event _Object in the DOM element so we can get to it later
                 el.data('eventObject', eventObject);
                 // make the event draggable using jQuery UI
                 el.draggable({
@@ -113,7 +113,7 @@ var Calendar = function () {
                 droppable: true, // this allows things to be dropped onto the calendar !!!
                 drop: function (date, allDay) { // this function is called when something is dropped
 
-                    // retrieve the dropped element's stored Event Object
+                    // retrieve the dropped element's stored Event _Object
                     var originalEventObject = $(this).data('eventObject');
                     // we need to copy it, so that multiple events don't have a reference to the same object
                     var copiedEventObject = $.extend({}, originalEventObject);

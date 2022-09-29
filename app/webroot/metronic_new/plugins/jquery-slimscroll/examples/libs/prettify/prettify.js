@@ -488,7 +488,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
    * </p>
    *
    * @param {Node} node an HTML DOM subtree containing source-code.
-   * @return {Object} source code and the text nodes in which they occur.
+   * @return {_Object} source code and the text nodes in which they occur.
    */
   function extractSourceSpans(node) {
     var nocode = /(?:^|\s)nocode(?:\s|$)/;
@@ -633,7 +633,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
     * @param {Array} fallthroughStylePatterns patterns that will be tried in
     *   order if the shortcut ones fail.  May have shortcuts.
     *
-    * @return {function (Object)} a
+    * @return {function (_Object)} a
     *   function that takes source code and returns a list of decorations.
     */
   function createSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns) {
@@ -669,7 +669,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
      * style classes preceded by the position at which they start in
      * job.sourceCode in order.
      *
-     * @param {Object} job an object like <pre>{
+     * @param {_Object} job an object like <pre>{
      *    sourceCode: {string} sourceText plain text,
      *    basePos: {int} position of job.sourceCode in the larger chunk of
      *        sourceCode.
@@ -775,8 +775,8 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
     *
     * It recognizes C, C++, and shell style comments.
     *
-    * @param {Object} options a set of optional parameters.
-    * @return {function (Object)} a function that examines the source code
+    * @param {_Object} options a set of optional parameters.
+    * @return {function (_Object)} a function that examines the source code
     *     in the input job and builds the decoration list.
     */
   function sourceDecorator(options) {
@@ -1049,7 +1049,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
   /**
    * Breaks {@code job.sourceCode} around style boundaries in
    * {@code job.decorations} and modifies {@code job.sourceNode} in place.
-   * @param {Object} job like <pre>{
+   * @param {_Object} job like <pre>{
    *    sourceCode: {string} source as plain text,
    *    spans: {Array.<number|Node>} alternating span start indices into source
    *       and the text node or element (e.g. {@code <BR>}) corresponding to that
@@ -1159,7 +1159,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
   /** Maps language-specific file extensions to handlers. */
   var langHandlerRegistry = {};
   /** Register a language handler for the given file extensions.
-    * @param {function (Object)} handler a function from source code to a list
+    * @param {function (_Object)} handler a function from source code to a list
     *      of decorations.  Takes a single argument job which describes the
     *      state of the computation.   The single parameter has the form
     *      {@code {
@@ -1454,7 +1454,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
   window['prettyPrint'] = prettyPrint;
    /**
     * Contains functions for creating and registering new language handlers.
-    * @type {Object}
+    * @type {_Object}
     */
   window['PR'] = {
         'createSimpleLexer': createSimpleLexer,

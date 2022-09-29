@@ -114,7 +114,7 @@ class JqueryEngineHelper extends JsBaseEngineHelper {
 	);
 
 /**
- * The variable name of the jQuery Object, useful
+ * The variable name of the jQuery _Object, useful
  * when jQuery is put into noConflict() mode.
  *
  * @var string

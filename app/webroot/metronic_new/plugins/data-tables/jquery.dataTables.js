@@ -4751,8 +4751,8 @@
 		 * copy arrays. The reason we need to do this, is that we don't want to deep copy array
 		 * init values (such as aaSorting) since the dev wouldn't be able to override them, but
 		 * we do want to deep copy arrays.
-		 *  @param {object} oOut Object to extend
-		 *  @param {object} oExtender Object from which the properties will be applied to oOut
+		 *  @param {object} oOut _Object to extend
+		 *  @param {object} oExtender _Object from which the properties will be applied to oOut
 		 *  @returns {object} oOut Reference, just for convenience - oOut === the return.
 		 *  @memberof DataTable#oApi
 		 *  @todo This doesn't take account of arrays inside the deep copied objects.
@@ -6158,7 +6158,7 @@
 			}
 			else if ( $.isPlainObject(mData) && iColumn === undefined )
 			{
-				/* Object update - update the whole row - assume the developer gets the object right */
+				/* _Object update - update the whole row - assume the developer gets the object right */
 				oSettings.aoData[iRow]._aData = $.extend( true, {}, mData );
 		
 				for ( i=0 ; i<oSettings.aoColumns.length ; i++ )
@@ -6920,7 +6920,7 @@
 	DataTable.settings = [];
 
 	/**
-	 * Object models container, for the various models that DataTables has available
+	 * _Object models container, for the various models that DataTables has available
 	 * to it. These models define the objects that are used to hold the active state 
 	 * and configuration of the table.
 	 *  @namespace
@@ -7674,7 +7674,7 @@
 		 * in the next version of DataTables. Please use mRender / mData rather than
 		 * fnRender.
 		 *  @type function
-		 *  @param {object} o Object with the following parameters:
+		 *  @param {object} o _Object with the following parameters:
 		 *  @param {int}    o.iDataRow The row in aoData
 		 *  @param {int}    o.iDataColumn The column in question
 		 *  @param {array}  o.aData The data for the row in question
@@ -10002,7 +10002,7 @@
 		 * in the next version of DataTables. Please use mRender / mData rather than
 		 * fnRender.
 		 *  @type function
-		 *  @param {object} o Object with the following parameters:
+		 *  @param {object} o _Object with the following parameters:
 		 *  @param {int}    o.iDataRow The row in aoData
 		 *  @param {int}    o.iDataColumn The column in question
 		 *  @param {array}  o.aData The data for the row in question

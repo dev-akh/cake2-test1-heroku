@@ -3354,7 +3354,7 @@ Base = Base.extend({
 		this.extend(arguments[0]);
 	}
 }, {
-	ancestor: Object,
+	ancestor: _Object,
 	version: "1.1",
 	
 	forEach: function(object, block, context) {
@@ -3525,7 +3525,7 @@ wysihtml5.browser = (function() {
     /**
      * Everything below IE9 doesn't know how to treat HTML5 tags
      *
-     * @param {Object} context The document object on which to check HTML5 support
+     * @param {_Object} context The document object on which to check HTML5 support
      *
      * @example
      *    wysihtml5.browser.supportsHTML5Tags(document);
@@ -3542,7 +3542,7 @@ wysihtml5.browser = (function() {
      * In particular, Opera needs a reference to a document that has a contentEditable in it's dom tree
      * in oder to report correct results
      *
-     * @param {Object} doc Document object on which to check for a query command
+     * @param {_Object} doc Document object on which to check for a query command
      * @param {String} command The query command to check for
      * @return {Boolean}
      *
@@ -3709,7 +3709,7 @@ wysihtml5.browser = (function() {
     },
     
     /**
-     * IE9 crashes when setting a getter via Object.defineProperty on XMLHttpRequest or XDomainRequest
+     * IE9 crashes when setting a getter via _Object.defineProperty on XMLHttpRequest or XDomainRequest
      * See https://connect.microsoft.com/ie/feedback/details/650112
      * or try the POC http://tifftiff.de/ie9_crash/
      */
@@ -3873,7 +3873,7 @@ wysihtml5.browser = (function() {
      *    // => true
      */
     isArray: function() {
-      return Object.prototype.toString.call(obj) === "[object Array]";
+      return _Object.prototype.toString.call(obj) === "[object Array]";
     }
   };
 };(function() {
@@ -4207,7 +4207,7 @@ wysihtml5.dom.convertToList = (function() {
  * Copy a set of attributes from one element to another
  *
  * @param {Array} attributesToCopy List of attributes which should be copied
- * @return {Object} Returns an object which offers the "from" method which can be invoked with the element where to
+ * @return {_Object} Returns an object which offers the "from" method which can be invoked with the element where to
  *    copy the attributes from., this again returns an object which provides a method named "to" which can be invoked 
  *    with the element where to copy the attributes to (see example)
  *
@@ -4245,7 +4245,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
  * Interesting article on how to copy styles
  *
  * @param {Array} stylesToCopy List of styles which should be copied
- * @return {Object} Returns an object which offers the "from" method which can be invoked with the element where to
+ * @return {_Object} Returns an object which offers the "from" method which can be invoked with the element where to
  *    copy the styles from., this again returns an object which provides a method named "to" which can be invoked 
  *    with the element where to copy the styles to (see example)
  *
@@ -4400,7 +4400,7 @@ wysihtml5.dom.getAsDom = (function() {
  * Designed for optimal performance.
  *
  * @param {Element} node The from which to check the parent nodes
- * @param {Object} matchingSet Object to match against (possible properties: nodeName, className, classRegExp)
+ * @param {_Object} matchingSet _Object to match against (possible properties: nodeName, className, classRegExp)
  * @param {Number} [levels] How many parents should the function check up from the current node (defaults to 50)
  * @return {null|Element} Returns the first element that matched the desiredNodeName(s)
  * @example
@@ -4548,7 +4548,7 @@ wysihtml5.dom.getStyle = (function() {
  * Optimized for being heavily executed
  * Unleashes the power of live node lists
  *
- * @param {Object} doc The document object of the context where to check
+ * @param {_Object} doc The document object of the context where to check
  * @param {String} tagName Upper cased tag name
  * @example
  *    wysihtml5.dom.hasElementWithTagName(document, "IMG");
@@ -4575,7 +4575,7 @@ wysihtml5.dom.hasElementWithTagName = (function() {
  * Optimized for being heavily executed
  * Unleashes the power of live node lists
  *
- * @param {Object} doc The document object of the context where to check
+ * @param {_Object} doc The document object of the context where to check
  * @param {String} tagName Upper cased tag name
  * @example
  *    wysihtml5.dom.hasElementWithClassName(document, "foobar");
@@ -4695,10 +4695,10 @@ wysihtml5.dom.observe = function(element, eventNames, handler) {
  * Rewrites the HTML based on given rules
  *
  * @param {Element|String} elementOrHtml HTML String to be sanitized OR element whose content should be sanitized
- * @param {Object} [rules] List of rules for rewriting the HTML, if there's no rule for an element it will
+ * @param {_Object} [rules] List of rules for rewriting the HTML, if there's no rule for an element it will
  *    be converted to a "span". Each rule is a key/value pair where key is the tag to convert, and value the
  *    desired substitution.
- * @param {Object} context Document object in which to parse the html, needed to sandbox the parsing
+ * @param {_Object} context Document object in which to parse the html, needed to sandbox the parsing
  *
  * @return {Element|String} Depends on the elementOrHtml parameter. When html then the sanitized html as string elsewise the element.
  *
@@ -5192,7 +5192,7 @@ wysihtml5.dom.renameElement = function(element, newNodeName) {
 };/**
  * Takes an element, removes it and replaces it with it's childs
  * 
- * @param {Object} node The node which to replace with it's child nodes
+ * @param {_Object} node The node which to replace with it's child nodes
  * @example
  *    <div id="foo">
  *      <span>hello</span>
@@ -5306,7 +5306,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
  *      can do anything as if the sandbox attribute wasn't set
  *
  * @param {Function} [readyCallback] Method that gets invoked when the sandbox is ready
- * @param {Object} [config] Optional parameters
+ * @param {_Object} [config] Optional parameters
  *
  * @example
  *    new wysihtml5.dom.Sandbox(function(sandbox) {
@@ -5537,7 +5537,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
           if (setter) {
             config.set = function() {};
           }
-          Object.defineProperty(object, property, config);
+          _Object.defineProperty(object, property, config);
         } catch(e) {}
       }
     }
@@ -5581,7 +5581,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
  *    - div[contentEditable] elements don't support it
  *    - older browsers (such as IE8 and Firefox 3.6) don't support it at all
  *
- * @param {Object} parent Instance of main wysihtml5.Editor class
+ * @param {_Object} parent Instance of main wysihtml5.Editor class
  * @param {Element} view Instance of wysihtml5.views.* class
  * @param {String} placeholderText
  *
@@ -5691,7 +5691,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
 })();/**
  * IE and Opera leave an empty paragraph in the contentEditable element after clearing it
  *
- * @param {Object} contentEditableElement The contentEditable element to observe for clearing events
+ * @param {_Object} contentEditableElement The contentEditable element to observe for clearing events
  * @exaple
  *    wysihtml5.quirks.ensureProperClearing(myContentEditableElement);
  */
@@ -5720,7 +5720,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
   /**
    * In Opera when the caret is in the first and only item of a list (<ul><li>|</li></ul>) and the list is the first child of the contentEditable element, it's impossible to delete the list by hitting backspace
    *
-   * @param {Object} contentEditableElement The contentEditable element to observe for clearing events
+   * @param {_Object} contentEditableElement The contentEditable element to observe for clearing events
    * @exaple
    *    wysihtml5.quirks.ensureProperClearing(myContentEditableElement);
    */
@@ -5930,7 +5930,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
     /**
      * Get the current selection as a bookmark to be able to later restore it
      *
-     * @return {Object} An object that represents the current selection
+     * @return {_Object} An object that represents the current selection
      */
     getBookmark: function() {
       var range = this.getRange();
@@ -5940,7 +5940,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
     /**
      * Restore a selection retrieved via wysihtml5.Selection.prototype.getBookmark
      *
-     * @param {Object} bookmark An object that represents the current selection
+     * @param {_Object} bookmark An object that represents the current selection
      */
     setBookmark: function(bookmark) {
       if (!bookmark) {
@@ -5953,7 +5953,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
     /**
      * Set the caret in front of the given node
      *
-     * @param {Object} node The element or text node where to position the caret in front of
+     * @param {_Object} node The element or text node where to position the caret in front of
      * @example
      *    selection.setBefore(myElement);
      */
@@ -5967,7 +5967,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
     /**
      * Set the caret after the given node
      *
-     * @param {Object} node The element or text node where to position the caret in front of
+     * @param {_Object} node The element or text node where to position the caret in front of
      * @example
      *    selection.setBefore(myElement);
      */
@@ -6019,7 +6019,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
      * Get the node which contains the selection
      *
      * @param {Boolean} [controlRange] (only IE) Whether it should return the selected ControlRange element when the selection type is a "ControlRange"
-     * @return {Object} The node that contains the caret
+     * @return {_Object} The node that contains the caret
      * @example
      *    var nodeThatContainsCaret = selection.getSelectedNode();
      */
@@ -6153,7 +6153,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
     /**
      * Insert a node at the caret position and move the cursor behind it
      *
-     * @param {Object} node HTML string to insert
+     * @param {_Object} node HTML string to insert
      * @example
      *    selection.insertNode(document.createTextNode("foobar"));
      */
@@ -6167,7 +6167,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
     /**
      * Wraps current selection with the given node
      *
-     * @param {Object} node The node to surround the selected elements with
+     * @param {_Object} node The node to surround the selected elements with
      */
     surround: function(node) {
       var range = this.getRange();
@@ -9048,7 +9048,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
 })(wysihtml5);/**
  * Toolbar
  *
- * @param {Object} parent Reference to instance of Editor instance
+ * @param {_Object} parent Reference to instance of Editor instance
  * @param {Element} container Reference to the toolbar container element
  *
  * @example
@@ -9344,7 +9344,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
  * WYSIHTML5 Editor
  *
  * @param {Element} textareaElement Reference to the textarea which should be turned into a rich text interface
- * @param {Object} [config] See defaultConfig object below for explanation of each individual config option
+ * @param {_Object} [config] See defaultConfig object below for explanation of each individual config option
  *
  * @events
  *    load
@@ -9381,7 +9381,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
     toolbar:              undef,
     // Whether urls, entered by the user should automatically become clickable-links
     autoLink:             true,
-    // Object which includes parser rules to apply when html gets inserted via copy & paste
+    // _Object which includes parser rules to apply when html gets inserted via copy & paste
     // See parser_rules/*.js for examples
     parserRules:          { tags: { br: {}, span: {}, div: {}, p: {} }, classes: {} },
     // Parser method to use when the user inserts content via copy & paste

@@ -2274,13 +2274,13 @@ class FormHelperTest extends CakeTestCase {
 		);
 		$this->assertTags($result, $expected);
 
-		$result = $this->Form->input('Object.field', array('after' => 'A message to you, Rudy'));
+		$result = $this->Form->input('_Object.field', array('after' => 'A message to you, Rudy'));
 		$expected = array(
 			'div' => array('class' => 'input text'),
 			'label' => array('for' => 'ObjectField'),
 			'Field',
 			'/label',
-			'input' => array('type' => 'text', 'name' => 'data[Object][field]', 'id' => 'ObjectField'),
+			'input' => array('type' => 'text', 'name' => 'data[_Object][field]', 'id' => 'ObjectField'),
 			'A message to you, Rudy',
 			'/div'
 		);

@@ -20,7 +20,7 @@ App::uses('Router', 'Routing');
 App::uses('Set', 'Utility');
 
 /**
- * Object class provides a few generic methods used in several subclasses.
+ * _Object class provides a few generic methods used in several subclasses.
  *
  * Also includes methods for logging and the special method RequestAction,
  * to call other Controllers' Actions from anywhere.
@@ -37,7 +37,7 @@ class _Object {
 	}
 
 /**
- * Object-to-string conversion.
+ * _Object-to-string conversion.
  * Each class can override this method as necessary.
  *
  * @return string The name of this class

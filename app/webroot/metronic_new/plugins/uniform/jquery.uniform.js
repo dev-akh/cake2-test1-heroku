@@ -59,8 +59,8 @@ Enjoy!
 	 * The namespace will be added automatically.
 	 *
 	 * @param jQuery $el
-	 * @param Object options Uniform options for this element
-	 * @param Object events Events to bind, properties are event names
+	 * @param _Object options Uniform options for this element
+	 * @param _Object events Events to bind, properties are event names
 	 */
 	function bindMany($el, options, events) {
 		var name, namespaced;
@@ -78,7 +78,7 @@ Enjoy!
 	 *
 	 * @param jQuery $el Original element
 	 * @param jQuery $target Target for the events (our div/span)
-	 * @param Object options Uniform options for the element $target
+	 * @param _Object options Uniform options for the element $target
 	 */
 	function bindUi($el, $target, options) {
 		bindMany($el, options, {
@@ -111,7 +111,7 @@ Enjoy!
 	 * Remove the hover, focus, active classes.
 	 *
 	 * @param jQuery $el Element with classes
-	 * @param Object options Uniform options for the element
+	 * @param _Object options Uniform options for the element
 	 */
 	function classClearStandard($el, options) {
 		$el.removeClass(options.hoverClass + " " + options.focusClass + " " + options.activeClass);
@@ -140,7 +140,7 @@ Enjoy!
 	 *
 	 * @param jQuery $tag Our Uniform span/div
 	 * @param jQuery $el Original form element
-	 * @param Object options Uniform options for this element
+	 * @param _Object options Uniform options for this element
 	 */
 	function classUpdateChecked($tag, $el, options) {
 		var c = "checked",
@@ -167,7 +167,7 @@ Enjoy!
 	 *
 	 * @param jQuery $tag Our Uniform span/div
 	 * @param jQuery $el Original form element
-	 * @param Object options Uniform options for this element
+	 * @param _Object options Uniform options for this element
 	 */
 	function classUpdateDisabled($tag, $el, options) {
 		classUpdate($tag, options.disabledClass, $el.is(":disabled"));
@@ -208,9 +208,9 @@ Enjoy!
 	 * Create a div/span combo for uniforming an element
 	 *
 	 * @param jQuery $el Element to wrap
-	 * @param Object options Options for the element, set by the user
-	 * @param Object divSpanConfig Options for how we wrap the div/span
-	 * @return Object Contains the div and span as properties
+	 * @param _Object options Options for the element, set by the user
+	 * @param _Object divSpanConfig Options for how we wrap the div/span
+	 * @return _Object Contains the div and span as properties
 	 */
 	function divSpan($el, options, divSpanConfig) {
 		var $div, $span, id;
@@ -392,7 +392,7 @@ Enjoy!
 	 * http://mths.be/noselect v1.0.3
 	 *
 	 * @param jQuery $elem Element that we don't want to select
-	 * @param Object options Uniform options for the element
+	 * @param _Object options Uniform options for the element
 	 */
 	function noSelect($elem, options) {
 		var none = 'none';
@@ -414,7 +414,7 @@ Enjoy!
 	 *
 	 * @param jQuery $el Actual form element
 	 * @param jQuery $filenameTag Span/div to update
-	 * @param Object options Uniform options for this element
+	 * @param _Object options Uniform options for this element
 	 */
 	function setFilename($el, $filenameTag, options) {
 		var filename = $el.val();
@@ -448,7 +448,7 @@ Enjoy!
 			var name;
 
 			for (name in newCss) {
-				if (Object.prototype.hasOwnProperty.call(newCss, name)) {
+				if (_Object.prototype.hasOwnProperty.call(newCss, name)) {
 					restore.push({
 						el: this,
 						name: name,
@@ -496,7 +496,7 @@ Enjoy!
 	 * Standard way to unwrap the div/span combination from an element
 	 *
 	 * @param jQuery $el Element that we wish to preserve
-	 * @param Object options Uniform options for the element
+	 * @param _Object options Uniform options for the element
 	 * @return Function This generated function will perform the given work
 	 */
 	function unwrapUnwrapUnbindFunction($el, options) {

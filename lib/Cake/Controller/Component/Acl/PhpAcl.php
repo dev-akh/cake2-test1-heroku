@@ -22,7 +22,7 @@
  *
  * @package Cake.Controller.Component.Acl
  */
-class PhpAcl extends Object implements AclInterface {
+class PhpAcl extends _Object implements AclInterface {
 
 /**
  * Constant for deny
@@ -48,14 +48,14 @@ class PhpAcl extends Object implements AclInterface {
 	public $options = array();
 
 /**
- * Aro Object
+ * Aro _Object
  *
  * @var PhpAro
  */
 	public $Aro = null;
 
 /**
- * Aco Object
+ * Aco _Object
  *
  * @var PhpAco
  */
@@ -195,7 +195,7 @@ class PhpAcl extends Object implements AclInterface {
 }
 
 /**
- * Access Control Object
+ * Access Control _Object
  *
  */
 class PhpAco {
@@ -360,7 +360,7 @@ class PhpAco {
 }
 
 /**
- * Access Request Object
+ * Access Request _Object
  *
  */
 class PhpAro {

@@ -112,7 +112,7 @@ abstract class JsBaseEngineHelper extends AppHelper {
 	}
 
 /**
- * Generates a JavaScript object in JavaScript Object Notation (JSON)
+ * Generates a JavaScript object in JavaScript _Object Notation (JSON)
  * from an array. Will use native JSON encode method if available, and $useNative == true
  *
  * ### Options:

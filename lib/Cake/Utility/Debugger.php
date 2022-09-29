@@ -565,7 +565,7 @@ class Debugger {
 /**
  * Handles object to string conversion.
  *
- * @param string $var Object to convert
+ * @param string $var _Object to convert
  * @param int $depth The current depth, used for tracking recursion.
  * @param int $indent The current indentation level.
  * @return string

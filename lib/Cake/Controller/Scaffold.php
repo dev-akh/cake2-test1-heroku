@@ -153,7 +153,7 @@ class Scaffold {
 /**
  * Renders a view action of scaffolded model.
  *
- * @param CakeRequest $request Request Object for scaffolding
+ * @param CakeRequest $request Request _Object for scaffolding
  * @return mixed A rendered view of a row from Models database table
  * @throws NotFoundException
  */
@@ -211,7 +211,7 @@ class Scaffold {
 /**
  * Saves or updates the scaffolded model.
  *
- * @param CakeRequest $request Request Object for scaffolding
+ * @param CakeRequest $request Request _Object for scaffolding
  * @param string $action add or edit
  * @return mixed Success on save/update, add/edit form if data is empty or error if save or update fails
  * @throws NotFoundException

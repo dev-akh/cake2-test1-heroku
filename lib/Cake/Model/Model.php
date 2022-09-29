@@ -1,6 +1,6 @@
 <?php
 /**
- * Object-relational mapper.
+ * _Object-relational mapper.
  *
  * DBO-backed object data model, for mapping database tables to CakePHP objects.
  *
@@ -32,7 +32,7 @@ App::uses('CakeEventListener', 'Event');
 App::uses('CakeEventManager', 'Event');
 
 /**
- * Object-relational mapper.
+ * _Object-relational mapper.
  *
  * DBO-backed object data model.
  * Automatically selects a database table name based on a pluralized lowercase object class name
@@ -42,7 +42,7 @@ App::uses('CakeEventManager', 'Event');
  * @package       Cake.Model
  * @link          http://book.cakephp.org/2.0/en/models.html
  */
-class Model extends Object implements CakeEventListener {
+class Model extends _Object implements CakeEventListener {
 
 /**
  * The name of the DataSource connection that this Model uses
